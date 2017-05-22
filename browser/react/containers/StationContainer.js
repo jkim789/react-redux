@@ -4,9 +4,9 @@ import Station from '../components/Station';
 import {convertSong} from '../utils';
 import { toggleSong } from '../action-creators/player';
 
-const DUMMY_CURRENT_SONG = {};
-const DUMMY_IS_PLAYING = false;
-const DUMMY_TOGGLE_ONE = function () {};
+// const DUMMY_CURRENT_SONG = {};
+// const DUMMY_IS_PLAYING = false;
+// const DUMMY_TOGGLE_ONE = function () {};
 
 
 

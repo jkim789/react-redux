@@ -3,36 +3,64 @@ import store from '../store';
 import Album from '../components/Album';
 import {toggleSong} from '../action-creators/player';
 
-class AlbumContainer extends Component {
+import {connect} from 'react-redux'
 
-  constructor() {
-    super();
-    this.state = store.getState();
-  }
 
-  componentDidMount() {
-    this.unsubscribe = store.subscribe(() => {
-      this.setState(store.getState());
-    });
-  }
+// class AlbumContainer extends Component {
 
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
+//  constructor() {
+//     super();
+//     this.state = store.getState();
+//   }
 
-  toggle(song, list) {
-    store.dispatch(toggleSong(song, list));
-  }
+  // componentDidMount() {
 
-  render() {
-    return <Album
-      selectedAlbum={this.state.albums.selected}
-      currentSong={this.state.player.currentSong}
-      isPlaying={this.state.player.isPlaying}
-      toggleOne={this.toggle}
-    />;
+  //   this.unsubscribe = store.subscribe(() => {
+  //     this.setState(store.getState());
+  //   });
+  // }
+
+  // componentWillUnmount() {
+  //   this.unsubscribe();
+  // }
+
+  // toggle(song, list) {
+  //   store.dispatch(toggleSong(song, list));
+  // }
+
+//   render() {
+//     return <Album
+//       selectedAlbum={this.state.albums.selected}
+//       currentSong={this.state.player.currentSong}
+//       isPlaying={this.state.player.isPlaying}
+//       toggleOne={this.toggle}
+//     />;
+//   }
+
+// }
+
+// export default AlbumContainer;
+
+
+ const mapStateToProps = (state, ownProps)=>{
+   console.log(ownProps);
+  return {
+    selectedAlbum: state.albums.selected,
+    currentSong: state.player.currentSong,
+    isPlaying: state.player.isPlaying
   }
 
 }
 
-export default AlbumContainer;
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+      // console.log("IAMOWN", dispatch);
+      // console.log("IAMOWN", ownProps);
+    return {
+      toggleOne: (song, list)=> dispatch(toggleSong(song, list))
+
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Album);
+

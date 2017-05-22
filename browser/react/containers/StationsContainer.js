@@ -10,7 +10,7 @@ const convertSongsToStations = (songsArray) => {
             stations[songObj.genre].push(songObj)
         }
     })
-    return stations 
+    return stations
 }
 
 const mapStateToProps = (state) => {
@@ -20,10 +20,6 @@ const mapStateToProps = (state) => {
     };
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-
-    }
-}
+const mapDispatchToProps = (dispatch) => {}
 
 export default connect(mapStateToProps,mapDispatchToProps)(Stations)

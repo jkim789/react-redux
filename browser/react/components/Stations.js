@@ -1,14 +1,14 @@
 import React from 'react'
 import {Link} from 'react-router'
 
-const DUMMY_STATIONS_DATA = [
-  { name: '90s Hip Hop' },
-  { name: 'Death Metal' },
-  { name: 'Classical' }
-];
+// const DUMMY_STATIONS_DATA = [
+//   { name: '90s Hip Hop' },
+//   { name: 'Death Metal' },
+//   { name: 'Classical' }
+// ];
 
 export default function Stations(props) {
-    console.log('OUR PROPS ===>>>>',props)
+    // console.log('OUR PROPS ===>>>>',props)
     const stationKeys = Object.keys(props.stations)
     return (
          <div>
@@ -18,7 +18,7 @@ export default function Stations(props) {
                 stationKeys.map(station => {
                 return (
                     <div className="list-group-item" key={station}>
-                    <Link to={'fill/me/in/later'}>{station}</Link>
+                    <Link to={`/stations/${station}`}>{station}</Link>
                     </div>
                 );
                 })
